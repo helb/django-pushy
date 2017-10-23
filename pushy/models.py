@@ -71,7 +71,7 @@ class Device(models.Model):
 
     key = models.CharField(max_length=255)
     type = models.SmallIntegerField(choices=DEVICE_TYPE_CHOICES)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete='CASCADE')
 
     class Meta:
         unique_together = ('key', 'type')
